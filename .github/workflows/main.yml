@@ -1,11 +1,18 @@
 name: BuildWF
 on:
-#    push:
-#       branches:
-#           - main
+    push:
+       branches:
+          - main
     pull_request:
         branches:
-            - main
+          - main
+    
+    workflow_dispatch:
+    
+    schedule:
+        - cron: '10 14 * * 1-5'
+
+      
 jobs:
     Build:
         runs-on: ubuntu-latest
