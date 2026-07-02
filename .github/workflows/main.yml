@@ -1,15 +1,19 @@
 name: BuildWF
 on:
-  push:
-    branches:
-      - main
-
+#    push:
+#       branches:
+#           - main
+    pull_request:
+        branches:
+            - main
 jobs:
     Build:
         runs-on: ubuntu-latest
         steps:
             - name: Code checkout
               uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
 
             - name: Maven Build
               run: mvn clean install
@@ -20,6 +24,8 @@ jobs:
         steps:
             - name: Code checkout
               uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
 
             - name: Run tests on main branch
               run: mvn test
