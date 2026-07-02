@@ -77,7 +77,7 @@ jobs:
                 scan-refs: .
                 format: json
                 exit-code: 0
-                vulns-type: os,library
+                vuln-type: os,library
                 output: trivy-report.json
 
             - name: Upload Trivy Scan results as artifact
