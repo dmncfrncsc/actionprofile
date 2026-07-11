@@ -9,8 +9,8 @@ on:
     
     workflow_dispatch:
     
-    schedule:
-        - cron: '10 14 * * 1-5'
+  #  schedule:
+    #    - cron: '10 14 * * 1-5'
 env:
     ECR_REPOSITORY: 'vprofile-appimage'
 
@@ -76,7 +76,7 @@ jobs:
               uses: aquasecurity/trivy-action@v0.36.0
               with:
                 scan-type: fs
-                scan-refs: .
+                scan-ref: .
                 format: json
                 exit-code: 0
                 vuln-type: os,library
